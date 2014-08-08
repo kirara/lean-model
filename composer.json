@@ -3,7 +3,7 @@
 	"description": "LeanMapper enchanced base classes + Nette extension.",
 	"type": "library",
 	"keywords": ["php","model","leanmapper","nette"],
-	"license": ["BSD-3-Clause"],
+	"license": ["NewBSD"],
 	"authors": [
 		{
 			"name": "Miroslav Mrázek - Šaman",
@@ -12,6 +12,11 @@
 			"role": "Developer"
 		}
 	],
+	"autoload": {
+		"psr-0": {
+			"LeanModel": ""
+		}
+	},
 	"require": {
 		"php": ">= 5.4",
 		"tharos/leanmapper": "~2.2.0"

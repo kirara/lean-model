@@ -1,0 +1,20 @@
+{
+	"name": "saman/lm-model",
+	"description": "LeanMapper enchanced base classes + Nette extension.",
+	"type": "library",
+	"keywords": ["php","model","leanmapper","nette"],
+	"license": ["BSD-3-Clause"],
+	"authors": [
+		{
+			"name": "Miroslav Mrázek - Šaman",
+			"email": "miroslav.mrazek@gmail.com",
+			"homepage": "http://miroslav-mrazek.cz",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">= 5.4",
+		"tharos/leanmapper": "~2.2.0"
+	},
+	"minimum-stability": "stable"
+}

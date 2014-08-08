@@ -1,6 +1,6 @@
 <?php
 
-namespace Saman\LeanModel;
+namespace LeanModel;
 
 use LeanMapper\Repository as LeanRepository,
 	LeanMapper\Exception\InvalidValueException,

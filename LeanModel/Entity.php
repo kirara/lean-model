@@ -1,6 +1,6 @@
 <?php
 
-namespace Saman\LeanModel;
+namespace LeanModel;
 
 use LeanMapper\Entity as LeanEntity,
 	LeanMapper\Exception\MemberAccessException,

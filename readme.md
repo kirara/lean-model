@@ -1,16 +1,16 @@
 LeanModel
 =========
-Model skeleton for Nette 2.2 based on Leanmapper ORM
+*Model skeleton for Nette 2.2 based on Leanmapper ORM.*
 
 Add to `config.neon`:
 ```
 extensions:
-	leanModel: Saman\LeanModel\LeanModelExtension
+	leanModel: LeanModel\LeanModelExtension
 
 leanModel:
 	defaultEntityNamespace: "defaultEntityNamespace"  # "App\Model" if not set
-	mapper: Saman\LeanModel\Mapper
-	entityFactory: Saman\LeanModel\EntityFactory
+	mapper: LeanModel\Mapper
+	entityFactory: LeanModel\EntityFactory
 ```
 and to `config.local.neon`:
 ```

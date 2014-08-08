@@ -1,5 +1,5 @@
 {
-	"name": "saman/lm-model",
+	"name": "saman/leanmodel",
 	"description": "LeanMapper enchanced base classes + Nette extension.",
 	"type": "library",
 	"keywords": ["php","model","leanmapper","nette"],

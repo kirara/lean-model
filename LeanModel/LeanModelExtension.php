@@ -1,6 +1,6 @@
 <?php
 
-namespace Saman\LeanModel;
+namespace LeanModel;
 
 use Nette\DI\CompilerExtension;
 

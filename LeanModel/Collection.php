@@ -9,6 +9,22 @@ class Collection extends ArrayObject
 {
 	
 	/**
+	 * Returns array of pairs $key => $value.
+	 * @param string $key
+	 * @param string $value
+	 * @return array
+	 */
+	public function fetchPairs($key, $value)
+	{
+		$pairs = [];
+		foreach ($this as $entity) {
+			$pairs[$entity->$key] = $entity->$value;
+		}
+		return $pairs;
+	}
+	
+	
+	/**
 	 * Returns array of $entity->toArray().
 	 * @return array
 	 */

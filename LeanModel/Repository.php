@@ -32,8 +32,7 @@ abstract class Repository extends LeanRepository
 	 */
 	public function getBy($by)
 	{
-		$rows = $this->connection->select('*')
-			->from($this->getTable())
+		$rows = $this->createFluent()
 			->where($by)
 			->fetchAll();
 
@@ -56,8 +55,7 @@ abstract class Repository extends LeanRepository
 	 */
 	public function findAll()
 	{
-		$entities = $this->connection->select('*')
-			->from($this->getTable())
+		$entities = $this->createFluent()
 			->fetchAll();
 
 		return $this->createEntities($entities);
@@ -72,8 +70,7 @@ abstract class Repository extends LeanRepository
 	 */
 	public function findBy($by)
 	{
-		$entities = $this->connection->select('*')
-			->from($this->getTable())
+		$entities = $this->createFluent()
 			->where($by)
 			->fetchAll();
 

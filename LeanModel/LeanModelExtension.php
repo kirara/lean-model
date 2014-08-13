@@ -49,10 +49,31 @@ class LeanModelExtension extends CompilerExtension
 		} else {
 			$defaultEntityNamespace = 'App\Model';
 		}
-
 		
 		$connection = $container->addDefinition($this->prefix('connection'))
-			->setClass('LeanMapper\Connection', array($config));
+			->setClass('LeanMapper\Connection', [$config]);
+		
+		
+		if (isset($config['filters'])) {
+			$filters = $config['filters'];
+			unset($config['filters']);
+		}
+		else
+		{
+			$filters = [];
+		}
+		
+		foreach ($filters as $filter)
+		{
+			$filterName = key($filter);
+			$filterClass = $filter[$filterName];
+			
+			$$filterName = $container->addDefinition($this->prefix($filterName))
+				->setClass($filterClass);
+
+			$connection->addSetup([$$filterName, 'registerFilters'], [$connection]);
+		}
+			
 		
 		if(isset($entityFactory)) {
 			$container->addDefinition($this->prefix('entityFactory'))
@@ -67,7 +88,7 @@ class LeanModelExtension extends CompilerExtension
 		if ($useProfiler) {
 			$panel = $container->addDefinition($this->prefix('panel'))
 				->setClass('Dibi\Bridges\Tracy\Panel');
-			$connection->addSetup(array($panel, 'register'), array($connection));
+			$connection->addSetup([$panel, 'register'], [$connection]);
 		}
 	}
 

@@ -63,12 +63,12 @@ class LeanModelExtension extends CompilerExtension
 			$filters = [];
 		}
 		
-		foreach ($filters as $filter)
+		foreach ($filters as $key => $filter)
 		{
-			$filterName = key($filter);
-			$filterClass = $filter[$filterName];
+			$filterName = (is_array($filter) ? key($filter) : (string)$key);
+			$filterClass = (is_array($filter) ? $filter[$filterName] : $filter);
 			
-			$$filterName = $container->addDefinition($this->prefix($filterName))
+			$$filterName = $container->addDefinition($this->prefix("filters.$filterName"))
 				->setClass($filterClass);
 
 			$connection->addSetup([$$filterName, 'registerFilters'], [$connection]);

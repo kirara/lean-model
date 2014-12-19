@@ -63,7 +63,7 @@ abstract class Entity extends LeanEntity
 	 */
 	public function toArray()
 	{
-		$array = [];
+		$array = array();
 		$data = $this->isDetached() ? $this->row->getData() : $this->getData();
 		foreach($data as $property => $value)
 		{

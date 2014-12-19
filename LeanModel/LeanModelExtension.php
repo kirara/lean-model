@@ -51,7 +51,7 @@ class LeanModelExtension extends CompilerExtension
 		}
 		
 		$connection = $container->addDefinition($this->prefix('connection'))
-			->setClass('LeanMapper\Connection', [$config]);
+			->setClass('LeanMapper\Connection', array($config));
 		
 		
 		if (isset($config['filters'])) {
@@ -60,7 +60,7 @@ class LeanModelExtension extends CompilerExtension
 		}
 		else
 		{
-			$filters = [];
+			$filters = array();
 		}
 		
 		foreach ($filters as $key => $filter)
@@ -71,7 +71,7 @@ class LeanModelExtension extends CompilerExtension
 			$$filterName = $container->addDefinition($this->prefix("filters.$filterName"))
 				->setClass($filterClass);
 
-			$connection->addSetup([$$filterName, 'registerFilters'], [$connection]);
+			$connection->addSetup(array($$filterName, 'registerFilters'), array($connection));
 		}
 			
 		
@@ -82,13 +82,13 @@ class LeanModelExtension extends CompilerExtension
 		
 		if(isset($mapper)) {
 			$container->addDefinition($this->prefix('mapper'))
-			->setClass($mapper, [$defaultEntityNamespace]);
+			->setClass($mapper, array($defaultEntityNamespace));
 		}
 
 		if ($useProfiler) {
 			$panel = $container->addDefinition($this->prefix('panel'))
 				->setClass('Dibi\Bridges\Tracy\Panel');
-			$connection->addSetup([$panel, 'register'], [$connection]);
+			$connection->addSetup(array($panel, 'register'), array($connection));
 		}
 	}
 

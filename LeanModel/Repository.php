@@ -19,7 +19,7 @@ abstract class Repository extends LeanRepository
 	 */
 	public function get($id)
 	{
-		return $this->getBy(['id' => $id]);
+		return $this->getBy(array('id' => $id));
 	}
 
 
@@ -92,14 +92,14 @@ abstract class Repository extends LeanRepository
 			$arrayOfKeys = explode('And', $stringOfKeys);
 			$arrayOfLowerKeys = array_map('lcFirst', $arrayOfKeys);
 			$arrayOfArgs = array_combine($arrayOfLowerKeys, $args);
-			return call_user_func([$this, 'findBy'], $arrayOfArgs);
+			return call_user_func(array($this, 'findBy'), $arrayOfArgs);
 		}
 		elseif (self::stringStartsWith($method, 'getBy')) {
 			$stringOfKeys = substr($method, 5);
 			$arrayOfKeys = explode('And', $stringOfKeys);
 			$arrayOfLowerKeys = array_map('lcFirst', $arrayOfKeys);
 			$arrayOfArgs = array_combine($arrayOfLowerKeys, $args);
-			return call_user_func([$this, 'getBy'], $arrayOfArgs);
+			return call_user_func(array($this, 'getBy'), $arrayOfArgs);
 		}
 		else {
 			$class = get_class($this);

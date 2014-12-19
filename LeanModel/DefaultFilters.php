@@ -11,10 +11,10 @@ class DefaultFilters implements IFilters
 	
 	public function registerFilters(Connection $connection)
 	{
-		$connection->registerFilter('limit', [$this, 'limit']);
-		$connection->registerFilter('where', [$this, 'where']);
-		$connection->registerFilter('is', [$this, 'is']);
-		$connection->registerFilter('not', [$this, 'not']);
+		$connection->registerFilter('limit', array($this, 'limit'));
+		$connection->registerFilter('where', array($this, 'where'));
+		$connection->registerFilter('is', array($this, 'is'));
+		$connection->registerFilter('not', array($this, 'not'));
 	}
 
 
@@ -32,13 +32,13 @@ class DefaultFilters implements IFilters
 	
 	public function is(Fluent $statement, $column)
 	{
-		$statement->where([$column => TRUE]);
+		$statement->where(array($column => TRUE));
 	}
 	
 	
 	public function not(Fluent $statement, $column)
 	{
-		$statement->where([$column => FALSE]);
+		$statement->where(array($column => FALSE));
 	}
 	
 }

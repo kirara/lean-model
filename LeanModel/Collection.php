@@ -16,7 +16,7 @@ class Collection extends ArrayObject
 	 */
 	public function fetchPairs($key, $value)
 	{
-		$pairs = [];
+		$pairs = array();
 		foreach ($this as $entity) {
 			$pairs[$entity->$key] = $entity->$value;
 		}
@@ -30,7 +30,7 @@ class Collection extends ArrayObject
 	 */
 	public function toArray()
 	{
-		$array = [];
+		$array = array();
 		foreach($this as $entity)
 		{
 			$array[] = $entity->toArray();
@@ -45,7 +45,7 @@ class Collection extends ArrayObject
 	 */
 	public function toArrayOfIdentifiers()
 	{
-		$array = [];
+		$array = array();
 		foreach($this as $entity)
 		{
 			$array[] = $entity->toIdentifier();
